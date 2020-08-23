@@ -1,0 +1,651 @@
+var bas = document.querySelector("#cacc");
+var bas3 = document.querySelector("#caca");
+var bas1 = document.querySelector("#cacb");
+var hs = document.querySelector("#highscore-easy");
+var hs1 = document.querySelector("#highscore-medium");
+var hs2 = document.querySelector("#highscore-difficult");
+var rem;
+var rem1;
+var rem2;
+
+bas1.style.cursor = "pointer";
+console.log(localStorage);
+var namee = 0;
+var bas4 = document.querySelector("#calc4");
+var sc11 = "0:00";
+var sc22 = "0:00";
+var sc33 = "0:00";
+
+var time = document.querySelector("#calc3");
+var bleep = new Audio();
+bleep.src = "bubble.mp3";
+var bleep1 = new Audio();
+bleep1.src = "alert.mp3";
+
+var bas5 = bas1.children;
+var num = "49px";
+var time1;
+var i;
+var myArr = [];
+let name = [];
+bas5[0].addEventListener("click", myFunction2);
+var ch = 0;
+var ch1;
+var j;
+var k;
+var sum = 0;
+var sum1 = 0;
+var ele = document.createElement("div");
+var ele1 = document.createElement("div");
+var ele2 = document.createElement("div");
+function dispscore() {
+  hs.appendChild(ele);
+  ele.innerHTML = window.localStorage.getItem("easy");
+}
+function dispscore1() {
+  hs1.appendChild(ele1);
+  ele1.innerHTML = window.localStorage.getItem("medium");
+}
+function dispscore2() {
+  hs2.appendChild(ele2);
+  ele2.innerHTML = window.localStorage.getItem("difficult");
+}
+var interval;
+var count = 6;
+function myFunction2() {
+  namee++;
+  bas5[0].removeEventListener("click", myFunction2);
+  var name = document.createElement("div");
+  var name1 = document.createElement("div");
+  bas1.appendChild(name);
+  bas1.appendChild(name1);
+  bas5[0].textContent = "easy";
+  bas5[0].style.fontSize = "50px";
+  bas5[1].textContent = "medium";
+  bas5[1].style.fontSize = "50px";
+  bas5[1].style.color = "green";
+  bas5[2].textContent = "difficult";
+  bas5[2].style.fontSize = "50px";
+  bas5[2].style.color = "green";
+  bas5[0].addEventListener("click", myFunction3);
+  bas5[1].addEventListener("click", myFunction);
+  bas5[2].addEventListener("click", myFunction5);
+
+  console.log(bas5);
+}
+
+function myFunction() {
+  count = 4;
+  interval = window.clearInterval(fuctCountdown, 1000);
+  bas1.removeChild(bas5[0]);
+  bas1.removeChild(bas5[1]);
+
+  console.log(bas5);
+  bas5[0].removeEventListener("click", myFunction);
+  bas5[0].style.fontSize = "150px";
+  bas5[0].style.color = "rgb(401,399,399)";
+  fuctCountdown();
+  interval = window.setInterval(fuctCountdown, 1000);
+}
+
+function fuctCountdown() {
+  count--;
+  bas5[0].textContent = count;
+  if (count == 0) {
+    window.clearInterval(interval);
+
+    fuctGame();
+  }
+}
+
+function fuctGame() {
+  let num1 = 251;
+  let num2 = 27;
+  var sum2 = 0;
+  var milli = 0;
+  var sec = 0;
+  time1 = window.setInterval(countdown, 10);
+  function countdown() {
+    milli++;
+
+    if (milli == 100) {
+      milli = 0;
+      sec++;
+    }
+
+    time.innerHTML = sec.toString() + ":" + milli.toString();
+  }
+
+  for (k = 0; k < 20; k++) {
+    myArr[k] = k + 1;
+  }
+
+  function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
+  shuffle(myArr);
+  console.log(myArr);
+
+  for (i = 0; i < 20; i++) {
+    name[i] = document.createElement("div");
+    bas1.appendChild(name[i]);
+    name[i].style.border = "1px solid black";
+    name[i].style.borderRadius = "7px";
+    name[i].style.margin = "2px 2px";
+    name[i].style.color = "green";
+    name[i].style.padding = "10px";
+    name[i].style.backgroundColor = "black";
+    name[i].textContent = myArr[i];
+    if (parseInt(name[i].textContent) < 10) {
+      name[i].textContent = "0" + name[i].textContent;
+    }
+  }
+  var bas2 = bas1.children;
+  bas1.removeChild(bas2[0]);
+  console.log(bas2.length);
+
+  console.log(bas2[4].textContent);
+
+  console.log(bas2[4]);
+  bas1.style.display = "grid";
+  bas1.style.gridTemplateColumns = "repeat(5, auto) ";
+  bas1.style.gridTemplateRows = "repeat(4, auto)";
+  bas1.style.margin = "0px";
+  bas1.style.fontSize = "50px";
+
+  bas2[0].addEventListener("click", () => firstfunction1(bas2[0]));
+  bas2[1].addEventListener("click", () => firstfunction1(bas2[1]));
+  bas2[2].addEventListener("click", () => firstfunction1(bas2[2]));
+  bas2[3].addEventListener("click", () => firstfunction1(bas2[3]));
+  bas2[4].addEventListener("click", () => firstfunction1(bas2[4]));
+  bas2[5].addEventListener("click", () => firstfunction1(bas2[5]));
+  bas2[6].addEventListener("click", () => firstfunction1(bas2[6]));
+  bas2[7].addEventListener("click", () => firstfunction1(bas2[7]));
+  bas2[8].addEventListener("click", () => firstfunction1(bas2[8]));
+  bas2[9].addEventListener("click", () => firstfunction1(bas2[9]));
+  bas2[10].addEventListener("click", () => firstfunction1(bas2[10]));
+  bas2[11].addEventListener("click", () => firstfunction1(bas2[11]));
+  bas2[12].addEventListener("click", () => firstfunction1(bas2[12]));
+  bas2[13].addEventListener("click", () => firstfunction1(bas2[13]));
+  bas2[14].addEventListener("click", () => firstfunction1(bas2[14]));
+  bas2[15].addEventListener("click", () => firstfunction1(bas2[15]));
+  bas2[16].addEventListener("click", () => firstfunction1(bas2[16]));
+  bas2[17].addEventListener("click", () => firstfunction1(bas2[17]));
+  bas2[18].addEventListener("click", () => firstfunction1(bas2[18]));
+  bas2[19].addEventListener("click", () => firstfunction1(bas2[19]));
+
+  function firstfunction1(e) {
+    num1 = num1 - 5;
+    num2 = num2 - 1;
+    e.style.backgroundColor =
+      "rgb(" +
+      num1.toString() +
+      "," +
+      num2.toString() +
+      "," +
+      num2.toString() +
+      ")";
+    bleep.play();
+    ++sum2;
+    sum = 0;
+    ch1 = e;
+
+    if (sum2 != e.textContent) {
+      e.style.backgroundColor = "black";
+      num1 = num1 + 5;
+      num2 = num2 + 2;
+      bleep1.play();
+      bleep.pause();
+      window.alert("click in ascending order");
+      --sum2;
+    } else {
+      e.textContent = parseInt(e.textContent) + 20;
+    }
+    if (e.textContent > 40) {
+      e.textContent = "41";
+      e.style.color = e.style.backgroundColor;
+    }
+
+    for (i = 0; i < bas2.length; i++)
+      if (bas2[i].textContent == 41) {
+        ++sum;
+      }
+
+    if (sum == bas2.length) {
+      window.clearInterval(time1);
+      for (i = 0; i < bas2.length + i; i++) {
+        bas1.removeChild(bas2[0]);
+      }
+      if (bas4.innerHTML == "0:00") {
+        bas4.innerHTML = time.innerHTML;
+        window.localStorage.setItem("medium", time.innerHTML);
+      } else {
+        if (bas4.innerHTML > time.innerHTML) {
+          bas4.innerHTML = time.innerHTML;
+          sc22 = time.innerHTML;
+          window.localStorage.setItem("medium", time.innerHTML);
+        }
+      }
+
+      var na = document.createElement("div");
+      var na1 = document.createElement("div");
+      var na2 = document.createElement("div");
+      bas1.appendChild(na);
+      bas1.appendChild(na1);
+      bas1.appendChild(na2);
+
+      bas1.style.display = "inline";
+      na.textContent = "Your Time is";
+      na.style.position = "relative";
+      na.style.top = "30px";
+      na1.textContent = time.innerHTML;
+      na1.style.position = "relative";
+      na1.style.top = "30px";
+      na2.textContent = "restart";
+      na.style.fontSize = "75px";
+      na.style.color = "rgb(401,399,399)";
+      na.style.position = "relative";
+      na1.style.fontSize = "85px";
+      na1.style.color = "rgb(401,399,399)";
+      na1.style.position = "relative";
+      na2.style.fontSize = "85px";
+      na2.style.color = "green";
+      na2.style.position = "relative";
+      na2.style.top = "40px";
+
+      na2.addEventListener("click", myFunction);
+    }
+  }
+}
+function myFunction3() {
+  count = 4;
+  bas1.removeChild(bas5[0]);
+  bas1.removeChild(bas5[0]);
+  console.log(bas5);
+  bas5[0].removeEventListener("click", myFunction3);
+  bas5[0].style.fontSize = "150px";
+  bas5[0].style.color = "rgb(401,399,399)";
+  fuctCountdown1();
+  interval = window.setInterval(fuctCountdown1, 1000);
+}
+
+function fuctCountdown1() {
+  count--;
+  bas5[0].textContent = count;
+
+  if (count == 0) {
+    window.clearInterval(interval);
+
+    fuctGame1();
+  }
+}
+
+function fuctGame1() {
+  let num1 = 251;
+  let num2 = 27;
+  var sum2 = 0;
+  var milli = 0;
+  var sec = 0;
+  time1 = window.setInterval(countdown, 10);
+  function countdown() {
+    milli++;
+
+    if (milli == 100) {
+      milli = 0;
+      sec++;
+    }
+
+    time.innerHTML = sec.toString() + ":" + milli.toString();
+  }
+
+  for (k = 0; k < 16; k++) {
+    myArr[k] = k + 1;
+  }
+
+  function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
+  shuffle(myArr);
+  console.log(myArr);
+
+  for (i = 0; i < 16; i++) {
+    name[i] = document.createElement("div");
+    bas1.appendChild(name[i]);
+    name[i].style.border = "1px solid black";
+    name[i].style.borderRadius = "7px";
+    name[i].style.margin = "2px 2px";
+    name[i].style.color = "green";
+    name[i].style.padding = "10px";
+    name[i].style.backgroundColor = "black";
+    name[i].textContent = myArr[i];
+
+    if (parseInt(name[i].textContent) < 10) {
+      name[i].textContent = "0" + name[i].textContent;
+    }
+  }
+  var bas2 = bas1.children;
+  bas1.removeChild(bas5[0]);
+  console.log(bas5[0]);
+  console.log(bas5[1]);
+  console.log(bas2.length);
+
+  console.log(bas2[4].textContent);
+
+  console.log(bas2[4]);
+  bas1.style.display = "grid";
+  bas1.style.gridTemplateColumns = "repeat(4, auto) ";
+  bas1.style.gridTemplateRows = "repeat(3, auto)";
+  bas1.style.margin = "0px";
+  bas1.style.fontSize = "50px";
+
+  bas2[0].addEventListener("click", () => firstfunction1(bas2[0]));
+  bas2[1].addEventListener("click", () => firstfunction1(bas2[1]));
+  bas2[2].addEventListener("click", () => firstfunction1(bas2[2]));
+  bas2[3].addEventListener("click", () => firstfunction1(bas2[3]));
+  bas2[4].addEventListener("click", () => firstfunction1(bas2[4]));
+  bas2[5].addEventListener("click", () => firstfunction1(bas2[5]));
+  bas2[6].addEventListener("click", () => firstfunction1(bas2[6]));
+  bas2[7].addEventListener("click", () => firstfunction1(bas2[7]));
+  bas2[8].addEventListener("click", () => firstfunction1(bas2[8]));
+  bas2[9].addEventListener("click", () => firstfunction1(bas2[9]));
+  bas2[10].addEventListener("click", () => firstfunction1(bas2[10]));
+  bas2[11].addEventListener("click", () => firstfunction1(bas2[11]));
+  bas2[12].addEventListener("click", () => firstfunction1(bas2[12]));
+  bas2[13].addEventListener("click", () => firstfunction1(bas2[13]));
+  bas2[14].addEventListener("click", () => firstfunction1(bas2[14]));
+  bas2[15].addEventListener("click", () => firstfunction1(bas2[15]));
+
+  function firstfunction1(e) {
+    num1 = num1 - 5;
+    num2 = num2 - 1;
+    e.style.backgroundColor =
+      "rgb(" +
+      num1.toString() +
+      "," +
+      num2.toString() +
+      "," +
+      num2.toString() +
+      ")";
+    bleep.play();
+    ++sum2;
+    sum = 0;
+    ch1 = e;
+
+    if (sum2 != e.textContent) {
+      e.style.backgroundColor = "black";
+      num1 = num1 + 5;
+      num2 = num2 + 2;
+
+      bleep1.play();
+      bleep.pause();
+      window.alert("click in ascending order");
+      --sum2;
+    } else {
+      e.textContent = parseInt(e.textContent) + 16;
+    }
+    if (e.textContent > 32) {
+      e.textContent = "41";
+      e.style.color = e.style.backgroundColor;
+    }
+
+    for (i = 0; i < bas2.length; i++)
+      if (bas2[i].textContent == 41) {
+        ++sum;
+      }
+
+    if (sum == bas2.length) {
+      window.clearInterval(time1);
+      for (i = 0; i < bas2.length + i; i++) {
+        bas1.removeChild(bas2[0]);
+      }
+      if (bas4.innerHTML == "0:00") {
+        {
+          bas4.innerHTML = time.innerHTML;
+          window.localStorage.setItem("easy", time.innerHTML);
+        }
+      } else {
+        if (bas4.innerHTML > time.innerHTML) {
+          bas4.innerHTML = time.innerHTML;
+          window.localStorage.setItem("easy", time.innerHTML);
+          sc11 = time.innerHTML;
+        }
+      }
+
+      var na = document.createElement("div");
+      var na1 = document.createElement("div");
+      var na2 = document.createElement("div");
+
+      bas1.appendChild(na);
+      bas1.appendChild(na1);
+      bas1.appendChild(na2);
+
+      bas1.style.display = "inline";
+      na.textContent = "Your Time is";
+      na.style.position = "relative";
+      na.style.top = "30px";
+      na1.textContent = time.innerHTML;
+      na1.style.textWeight = "bold";
+      na1.style.position = "relative";
+      na1.style.top = "30px";
+      na2.textContent = "restart";
+      na.style.fontSize = "75px";
+      na.style.color = "rgb(401,399,399)";
+      na.style.position = "relative";
+      na1.style.fontSize = "85px";
+      na1.style.color = "rgb(401,399,399)";
+      na1.style.position = "relative";
+      na2.style.fontSize = "85px";
+      na2.style.color = "green";
+      na2.style.position = "relative";
+      na2.style.top = "50px";
+
+      na2.addEventListener("click", myFunction3);
+    }
+  }
+}
+function myFunction5() {
+  count = 4;
+  interval = window.clearInterval(fuctCountdown2, 1000);
+  bas1.removeChild(bas5[0]);
+  bas1.removeChild(bas5[0]);
+  bas5[0].removeEventListener("click", myFunction5);
+  bas5[0].style.fontSize = "150px";
+  bas5[0].style.color = "rgb(401,399,399)";
+  fuctCountdown2();
+  interval = window.setInterval(fuctCountdown2, 1000);
+}
+
+function fuctCountdown2() {
+  count--;
+  bas5[0].textContent = count;
+  if (count == 0) {
+    window.clearInterval(interval);
+
+    fuctGame2();
+  }
+}
+
+function fuctGame2() {
+  let num1 = 251;
+  let num2 = 27;
+  var sum2 = 0;
+  var milli = 0;
+  var sec = 0;
+  time1 = window.setInterval(countdown, 10);
+  function countdown() {
+    milli++;
+
+    if (milli == 100) {
+      milli = 0;
+      sec++;
+    }
+
+    time.innerHTML = sec.toString() + ":" + milli.toString();
+  }
+
+  for (k = 0; k < 30; k++) {
+    myArr[k] = k + 1;
+  }
+
+  function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
+  shuffle(myArr);
+  console.log(myArr);
+
+  for (i = 0; i < 30; i++) {
+    name[i] = document.createElement("div");
+    bas1.appendChild(name[i]);
+    name[i].style.border = "1px solid black";
+    name[i].style.borderRadius = "7px";
+    name[i].style.margin = "2px 2px";
+    name[i].style.color = "green";
+    name[i].style.padding = "10px";
+    name[i].style.backgroundColor = "black";
+    name[i].textContent = myArr[i];
+    if (parseInt(name[i].textContent) < 10) {
+      name[i].textContent = "0" + name[i].textContent;
+    }
+  }
+  var bas2 = bas1.children;
+  bas1.removeChild(bas2[0]);
+  console.log(bas2.length);
+
+  console.log(bas2[4].textContent);
+
+  console.log(bas2[4]);
+  bas1.style.display = "grid";
+  bas1.style.gridTemplateColumns = "repeat(6, auto) ";
+  bas1.style.gridTemplateRows = "repeat(5, auto)";
+  bas1.style.margin = "0px";
+  bas1.style.fontSize = "40px";
+
+  bas2[0].addEventListener("click", () => firstfunction1(bas2[0]));
+  bas2[1].addEventListener("click", () => firstfunction1(bas2[1]));
+  bas2[2].addEventListener("click", () => firstfunction1(bas2[2]));
+  bas2[3].addEventListener("click", () => firstfunction1(bas2[3]));
+  bas2[4].addEventListener("click", () => firstfunction1(bas2[4]));
+  bas2[5].addEventListener("click", () => firstfunction1(bas2[5]));
+  bas2[6].addEventListener("click", () => firstfunction1(bas2[6]));
+  bas2[7].addEventListener("click", () => firstfunction1(bas2[7]));
+  bas2[8].addEventListener("click", () => firstfunction1(bas2[8]));
+  bas2[9].addEventListener("click", () => firstfunction1(bas2[9]));
+  bas2[10].addEventListener("click", () => firstfunction1(bas2[10]));
+  bas2[11].addEventListener("click", () => firstfunction1(bas2[11]));
+  bas2[12].addEventListener("click", () => firstfunction1(bas2[12]));
+  bas2[13].addEventListener("click", () => firstfunction1(bas2[13]));
+  bas2[14].addEventListener("click", () => firstfunction1(bas2[14]));
+  bas2[15].addEventListener("click", () => firstfunction1(bas2[15]));
+  bas2[16].addEventListener("click", () => firstfunction1(bas2[16]));
+  bas2[17].addEventListener("click", () => firstfunction1(bas2[17]));
+  bas2[18].addEventListener("click", () => firstfunction1(bas2[18]));
+  bas2[19].addEventListener("click", () => firstfunction1(bas2[19]));
+  bas2[20].addEventListener("click", () => firstfunction1(bas2[20]));
+  bas2[21].addEventListener("click", () => firstfunction1(bas2[21]));
+  bas2[22].addEventListener("click", () => firstfunction1(bas2[22]));
+  bas2[23].addEventListener("click", () => firstfunction1(bas2[23]));
+  bas2[24].addEventListener("click", () => firstfunction1(bas2[24]));
+  bas2[25].addEventListener("click", () => firstfunction1(bas2[25]));
+  bas2[26].addEventListener("click", () => firstfunction1(bas2[26]));
+  bas2[27].addEventListener("click", () => firstfunction1(bas2[27]));
+  bas2[28].addEventListener("click", () => firstfunction1(bas2[28]));
+  bas2[29].addEventListener("click", () => firstfunction1(bas2[29]));
+
+  function firstfunction1(e) {
+    num1 = num1 - 3;
+    num2 = num2 - 1;
+    e.style.backgroundColor =
+      "rgb(" +
+      num1.toString() +
+      "," +
+      num2.toString() +
+      "," +
+      num2.toString() +
+      ")";
+    bleep.play();
+    ++sum2;
+    sum = 0;
+    ch1 = e;
+
+    if (sum2 != e.textContent) {
+      e.style.backgroundColor = "black";
+      num1 = num1 + 3;
+      num2 = num2 + 2;
+      bleep1.play();
+      bleep.pause();
+      window.alert("click in ascending order");
+      --sum2;
+    } else {
+      e.textContent = parseInt(e.textContent) + 30;
+    }
+    if (e.textContent > 60) {
+      e.textContent = "61";
+      e.style.color = e.style.backgroundColor;
+    }
+
+    for (i = 0; i < bas2.length; i++)
+      if (bas2[i].textContent == 61) {
+        ++sum;
+      }
+
+    if (sum == bas2.length) {
+      window.clearInterval(time1);
+      for (i = 0; i < bas2.length + i; i++) {
+        bas1.removeChild(bas2[0]);
+      }
+      if (bas4.innerHTML == "0:00") {
+        bas4.innerHTML = time.innerHTML;
+        window.localStorage.setItem("difficult", time.innerHTML);
+      } else {
+        if (bas4.innerHTML.toString() > time.innerHTML.toString()) {
+          bas4.innerHTML = time.innerHTML;
+          window.localStorage.setItem("difficult", time.innerHTML);
+        }
+      }
+      var na = document.createElement("div");
+      var na1 = document.createElement("div");
+      var na2 = document.createElement("div");
+      bas1.appendChild(na);
+      bas1.appendChild(na1);
+      bas1.appendChild(na2);
+
+      bas1.style.display = "inline";
+      na.textContent = "Your Time is";
+      na1.textContent = time.innerHTML;
+      na2.textContent = "restart";
+      na.style.fontSize = "75px";
+      na.style.color = "rgb(401,399,399)";
+      na.style.position = "relative";
+      na1.style.fontSize = "85px";
+      na1.style.color = "rgb(401,399,399)";
+      na1.style.position = "relative";
+      na2.style.fontSize = "85px";
+      na2.style.color = "green";
+      na2.style.position = "relative";
+      na2.style.top = "40px";
+
+      na2.addEventListener("click", myFunction5);
+    }
+  }
+}
